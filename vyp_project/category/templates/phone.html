@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block page_content %}
+<h1>{{ phone.name }}</h1>
+<div class="row">
+    <div class="col-md-8">
+        <img src="{{phone.image}}" alt="{{ phone.name }}" width="100%">
+    </div>
+    <div class="col md-4">
+        <h5>Год изготовления:</h5>
+        <p>{{phone.date }}</p>
+        <br>
+        <h5>Размер экрана: </h5>
+        <p>{{ phone.screen_size }}</p>
+        <br>
+        <h5>Оперативная память:</h5>
+        <p>{{phone.ram }}</p>
+        <br>
+        <h5>Встроенная память:</h5>
+        <p>{{phone.memory }}</p>
+        <br>
+        <h5>Дата добавления объявления:</h5>
+        <p>{{phone.add_date }}</p>
+        <br>
+    </div>
+</div>
+{% endblock %}
