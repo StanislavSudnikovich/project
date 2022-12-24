@@ -5,7 +5,7 @@
 <h1>{{ new.name }}</h1>
 <div class="row">
     <div class="col-md-8">
-        <img src="{% static new.image %}" alt="{{ new.title }}" width="100%">
+        <img src="{{ new.image.url }}" alt="{{ new.title }}" width="100%">
     </div>
 
     <div class="col md-4">
