@@ -40,3 +40,10 @@ class Phone(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    author = models.CharField(max_length=60)
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    post = models.ForeignKey('Phone', on_delete=models.CASCADE)

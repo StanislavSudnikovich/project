@@ -7,3 +7,4 @@ admin.site.register(Ram)
 admin.site.register(Memory)
 admin.site.register(Phone)
 
+

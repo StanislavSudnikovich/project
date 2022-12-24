@@ -2,17 +2,41 @@
 {% load static %}
 
 {% block page_content %}
-<h1>{{ new.name }}</h1>
+<h1>{{ news.name }}</h1>
 <div class="row">
-    <div class="col-md-8">
-        <img src="{{ new.image.url }}" alt="{{ new.title }}" width="100%">
+    <div class="col-md-5">
+        <img src="{{ news.image.url }}" alt="{{ news.title }}" width="100%">
     </div>
-
-    <div class="col md-4">
-        <h5>Дата публикации:</h5>
-        <p>{{ new.add_date }}</p>
-        <br>
-        <p>{{ new.text }}</p>
+    <div class="col md-7">
+        <h4>{{news.title}}</h4>
+        <p>{{ news.text }}</p>
+        <h6>Дата публикации: {{ news.add_date }}</h6>
+    </div>
+</div>
+<h3> Оставьте комментарий:</h3>
+<br>
+<div class="col-md-12">
+    <form action="/news/{{ news.pk }}/" method="post">
+        {%csrf_token %}
+        <div class="form-group">
+            {{ form.author }}
+        </div>
+        <div class="form-group">
+            {{ form.body }}
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+</div>
+    <div class="col-md-12">
+        <h3>Комментарии:</h3>
+        {% for comment in comments %}
+            <p>
+            On {{ comment.created_on.date }}&nbsp;
+            <b><mark>{{ comment.author }}</mark></b> написал:
+            </p>
+            <p><mark>{{ comment.body }}</mark></p>
+            <hr>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

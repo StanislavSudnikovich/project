@@ -1,7 +1,7 @@
 from django import forms
 
 
-class CommentForm(forms.Form):
+class ReviewForm(forms.Form):
     author = forms.CharField(
         max_length=68,
         widget=forms.TextInput(attrs={
@@ -12,6 +12,6 @@ class CommentForm(forms.Form):
     body = forms.CharField(widget=forms.Textarea(
         attrs={
             'class': 'form-control',
-            'placeholder': 'Оставьте комментарий'
+            'placeholder': 'Ваш отзыв'
         }
     ))
